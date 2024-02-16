@@ -1,0 +1,16 @@
+apiVersion: tests.testkube.io/v3
+kind: Test
+metadata:
+  name: curl-executor-smoke
+  namespace: testkube
+  labels:
+    core-tests: executors
+spec:
+  type: curl/test
+  content:
+    type: git-file
+    repository:
+      type: git-file
+      uri: https://github.com/jospin/testkube.git
+      branch: main
+      path: curlt-test/curl-smoke-test.json
