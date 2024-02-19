@@ -1,31 +1,31 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-kubernetes-service
+  name: poc-teste-service
 spec:
   ports:
     - name: http
       port: 80
       targetPort: 8080
   selector:
-    app: hello-kubernetes
+    app: poc-teste
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-kubernetes-deployment
+  name: poc-teste-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-kubernetes
+      app: poc-teste
   template:
     metadata:
       labels:
-        app: hello-kubernetes
+        app: poc-teste
     spec:
       containers:
-        - name: hello-kubernetes
+        - name: poc-teste
           image: gcr.io/google-samples/kubernetes-bootcamp:v1
           ports:
             - containerPort: 8080
